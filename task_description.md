@@ -57,7 +57,7 @@ You can explore component libraries other than DaisyUI. Remember, a unique proje
 
 <br/>
 
-2. Make sure to keep the navbar and footer on all the pages **except on the 404-page**. Create a reasonable and meaningful footer. <b>(including website logo, name, copyright, some contact information, social media links, address, etc.)</b>
+`2`. Make sure to keep the navbar and footer on all the pages **except on the 404-page**. Create a reasonable and meaningful footer. <b>(including website logo, name, copyright, some contact information, social media links, address, etc.)</b>
 
 <br/>
 
@@ -156,19 +156,19 @@ You can explore component libraries other than DaisyUI. Remember, a unique proje
     <br/>
 
     > Create an **Add A Toy** page where there will be a form having the following fields:
-    - Picture URL of the toy,
-    - Name,
-    - seller name (if available from the logged in user)
-    - seller email (info from the logged in user)
-    - Sub-category ( For example: if the website is based on Educational and learning toys, the sub-categories can be Math Toys, Language Toys, and Science Toys.)
-    - Price,
-    - Rating,
+    1- Name,
+    1- seller name (if available from the logged in user)
+    1- Picture URL of the toy,
+    1 - seller email (info from the logged in user)
+   1 - Sub-category ( For example: if the website is based on Educational and learning toys, the sub-categories can be Math Toys, Language Toys, and Science Toys.)
+   1 - Price,
+   1 - Rating,
     - Available quantity
     - Detail description
 
 <br/>
 
-10. **`My Toys page will be private routes:`** If a user logs in, they will see the My Toys page, which it will show all the toys information they have added from the Add A Toy page in a tabular form. Each row will have an update and delete button.
+1.  **`My Toys page will be private routes:`** If a user logs in, they will see the My Toys page, which it will show all the toys information they have added from the Add A Toy page in a tabular form. Each row will have an update and delete button.
     <br/>
 
     - **Update Action** - If they click the `update` button, they can update the Toy information (Price, available quantity, Detail description) <br/><br/>
