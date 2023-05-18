@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 // import Menu from "./Menu";
 const Header = () => {
   return (
-    <nav className="border mb-12">
+    <nav className="border mb-12 container mx-auto">
       {/* <Menu></Menu> */}
       <div className="navbar justify-between bg-base-100">
         <div>
@@ -12,10 +12,10 @@ const Header = () => {
         </div>
         <div className="flex gap-5">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/">All Toys</NavLink>
-          <NavLink to="/">My Toys</NavLink>
-          <NavLink to="/">Add Toys</NavLink>
-          <NavLink to="/">Blogs</NavLink>
+          <NavLink to="/all_toys">All Toys</NavLink>
+          <NavLink to="/my_toys">My Toys</NavLink>
+          <NavLink to="/add_toys">Add Toys</NavLink>
+          <NavLink to="/blogs">Blogs</NavLink>
           <NavLink to="/login">Log in</NavLink>
           <NavLink to="/register">Register</NavLink>
         </div>
