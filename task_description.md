@@ -163,8 +163,8 @@ You can explore component libraries other than DaisyUI. Remember, a unique proje
    1 - Sub-category ( For example: if the website is based on Educational and learning toys, the sub-categories can be Math Toys, Language Toys, and Science Toys.)
    1 - Price,
    1 - Rating,
-    - Available quantity
-    - Detail description
+   1 - Available quantity
+   1 - Detail description
 
 <br/>
 
