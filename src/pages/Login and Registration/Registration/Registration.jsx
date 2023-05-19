@@ -15,7 +15,7 @@ const Registration = () => {
     if (user) {
       navigate(from, { replace: true });
     }
-  }, [user]);
+  }, [from, navigate, user]);
   // console.log("location :>> ", location);
   const handleGoogleSignIn = () => {
     GoogleSignIn()
@@ -46,7 +46,7 @@ const Registration = () => {
     createUser(email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+        // const user = userCredential.user;
         // console.log("user :>> ", user);
       })
       .catch((error) => {

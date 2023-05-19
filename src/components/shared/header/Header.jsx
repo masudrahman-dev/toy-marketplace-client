@@ -4,8 +4,6 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 // import Menu from "./Menu";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user?.displayName);
-
   const handleLogOut = () => {
     // setIsUserOpen(!isUserOpen);
     logOut()
@@ -17,7 +15,7 @@ const Header = () => {
         // An error happened.
       });
   };
-  let t = true;
+
   return (
     <nav className="border mb-12 container mx-auto">
       {/* <Menu></Menu> */}
