@@ -22,7 +22,7 @@ const EditModal = () => {
 
   return (
     <div>
-      <input type="checkbox" id="my-modal" className="modal-toggle" />
+      <input type="checkbox" id="edit-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
           <div className=" flex justify-center">
@@ -196,7 +196,7 @@ const EditModal = () => {
             </div>
           </div>
           <div className="modal-action">
-            <label htmlFor="my-modal" className="btn">
+            <label htmlFor="edit-modal" className="btn">
               close
             </label>
           </div>

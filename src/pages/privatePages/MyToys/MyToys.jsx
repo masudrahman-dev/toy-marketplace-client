@@ -349,7 +349,7 @@ const MyToys = () => {
                       johndoe@gmail.com
                     </td>
                     <td className="px-4 link py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                      <label htmlFor="my-modal">Edit</label>
+                      <label htmlFor="edit-modal">Edit</label>
                     </td>
                     <td
                       onClick={deleteBtn}
