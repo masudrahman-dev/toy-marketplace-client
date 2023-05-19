@@ -1,11 +1,14 @@
-import React from 'react';
 
 const Blogs = () => {
-    return (
-        <div>
-            blogs
-        </div>
-    );
+  return (
+    <div>
+      {/* The button to open modal */}
+
+blog
+      {/* Put this part before </body> tag */}
+     
+    </div>
+  );
 };
 
 export default Blogs;
