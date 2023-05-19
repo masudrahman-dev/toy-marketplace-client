@@ -146,7 +146,15 @@ You can explore component libraries other than DaisyUI. Remember, a unique proje
 
 8. **`Single toy details route will be a private route:`**
 
-    > After clicking on the **View Details** button, he/ she will be redirected to the **Toys Details** route **( /toy/:id )** containing the information **( picture, toy name, seller name, seller email, price, rating, available quantity, and detail description)**
+    > After clicking on the **View Details** button, he/ she will be redirected to the **Toys Details** route **( /toy/:id )** containing the information **(
+        1 - picture,
+        1 - toy name,
+        1 - seller name,
+        1 - seller email,
+        1 - price, 
+        1 -rating,
+        1 - available quantity,
+        1 - detail description)**
     >
     > (optional) If possible, display the view details in a modal
 

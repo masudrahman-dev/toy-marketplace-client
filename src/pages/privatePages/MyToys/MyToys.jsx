@@ -1,81 +1,3 @@
-// <div className=" ">
-//   <button
-//     id="filterDropdownButton"
-//     data-dropdown-toggle="filterDropdown"
-//     className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-//     type="button"
-//   >
-//     <svg
-//       xmlns="http://www.w3.org/2000/svg"
-//       aria-hidden="true"
-//       className="h-4 w-4 mr-2 text-gray-400"
-//       viewBox="0 0 20 20"
-//       fill="currentColor"
-//     >
-//       <path
-//         fillRule="evenodd"
-//         d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
-//         clipRule="evenodd"
-//       />
-//     </svg>
-//     Filter
-//     <svg
-//       className="-mr-1 ml-1.5 w-5 h-5"
-//       fill="currentColor"
-//       viewBox="0 0 20 20"
-//       xmlns="http://www.w3.org/2000/svg"
-//       aria-hidden="true"
-//     >
-//       <path
-//         clipRule="evenodd"
-//         fillRule="evenodd"
-//         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-//       />
-//     </svg>
-//   </button>
-//   <div
-//     id="filterDropdown"
-//     className="z-10  w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700"
-//   >
-//     <h6 className="mb-3 text-sm font-medium text-gray-900 dark:text-white">
-//       Choose brand
-//     </h6>
-//     <ul
-//       className="space-y-2 text-sm"
-//       aria-labelledby="filterDropdownButton"
-//     >
-//       <li className="flex items-center">
-//         <input
-//           id="apple"
-//           type="checkbox"
-//           value=""
-//           className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-//         />
-//         <label
-//           htmlhtmlFor="apple"
-//           className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
-//         >
-//           Low to High
-//         </label>
-//       </li>
-
-//       <li className="flex items-center">
-//         <input
-//           id="benq"
-//           type="checkbox"
-//           value=""
-//           className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-//         />
-//         <label
-//           htmlhtmlFor="benq"
-//           className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
-//         >
-//           High to Low
-//         </label>
-//       </li>
-//     </ul>
-//   </div>
-
 import EditModal from "../../../components/modal/EditModal";
 import Swal from "sweetalert2";
 
@@ -137,65 +59,38 @@ const MyToys = () => {
               </div>
               <div className="flex flex-col flex-shrink-0 space-y-3 md:flex-row md:items-center lg:justify-end md:space-y-0 md:space-x-3">
                 <button
-                  type="button"
-                  className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                  type="checkbox"
+                  className="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                 >
-                  <svg
-                    className="h-3.5 w-3.5 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
+                  <input
+                    id="low"
+                    type="checkbox"
+                    value=""
+                    className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label
+                    htmlFor="low"
+                    className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
                   >
-                    <path
-                      clipRule="evenodd"
-                      fillRule="evenodd"
-                      d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                    />
-                  </svg>
-                  Add new product
+                    Low to High
+                  </label>
                 </button>
                 <button
                   type="button"
                   className="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                 >
-                  <svg
-                    className="w-4 h-4 mr-2"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
+                  <input
+                    id="high"
+                    type="checkbox"
+                    value=""
+                    className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label
+                    htmlFor="high"
+                    className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-                    />
-                  </svg>
-                  Update stocks 1/250
-                </button>
-                <button
-                  type="button"
-                  className="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-                >
-                  <svg
-                    className="w-4 h-4 mr-2"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
-                    />
-                  </svg>
-                  Export
+                    Hight to Low
+                  </label>
                 </button>
               </div>
             </div>

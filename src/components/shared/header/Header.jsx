@@ -7,8 +7,8 @@ const Header = () => {
       {/* <Menu></Menu> */}
       <div className="navbar justify-between bg-base-100">
         <div>
-          <Link className="btn btn-ghost bg-orange-700 normal-case text-xl">
-            My Dolls
+          <Link to="/" className="btn btn-ghost normal-case text-xl">
+           TOY BARI
           </Link>
         </div>
         <div className="flex gap-5">
