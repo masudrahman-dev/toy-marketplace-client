@@ -1,12 +1,21 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Registration = () => {
   const [errorMessage, setErrorMessage] = useState("");
-  const { createUser, updateUser, GoogleSignIn } = useContext(AuthContext);
+  const { createUser, updateUser, GoogleSignIn, user } =
+    useContext(AuthContext);
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user]);
   // console.log("location :>> ", location);
   const handleGoogleSignIn = () => {
     GoogleSignIn()

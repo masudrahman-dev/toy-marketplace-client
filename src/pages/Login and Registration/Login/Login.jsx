@@ -1,15 +1,19 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
-  const { GoogleSignIn, logIn } = useContext(AuthContext);
+  const { GoogleSignIn, logIn, user } = useContext(AuthContext);
   let navigate = useNavigate();
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
-
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user]);
   const handleLogin = (e) => {
     const form = e.target;
     const email = form.email.value;
@@ -18,7 +22,7 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        navigate(from, { replace: true })
+        navigate(from, { replace: true });
         console.log("Log in successful");
       })
       .catch((error) => {
