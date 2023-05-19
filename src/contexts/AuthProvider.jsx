@@ -27,6 +27,7 @@ const AuthProvider = ({ children }) => {
     setName(name);
     setPhoto(photo);
   };
+
   updateProfile(auth.currentUser, {
     displayName: name,
     photoURL: photo,
@@ -54,7 +55,7 @@ const AuthProvider = ({ children }) => {
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      // console.log("auth.currentUser :>> ", auth.currentUser);
+      console.log("auth.currentUser :>> ", auth.currentUser);
       // console.log("logged in user inside auth state observer", currentUser);
       setLoading(true);
       setUser(currentUser);

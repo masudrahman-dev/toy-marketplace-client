@@ -5,9 +5,8 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Registration = () => {
   const [errorMessage, setErrorMessage] = useState("");
-  const { createUser } = useContext(AuthContext);
-  const { GoogleSignIn } = useContext(AuthContext);
-  
+  const { createUser, updateUser, GoogleSignIn } = useContext(AuthContext);
+
   // console.log("location :>> ", location);
   const handleGoogleSignIn = () => {
     GoogleSignIn()
@@ -26,26 +25,27 @@ const Registration = () => {
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
+    const photo = form.url.value;
     const password = form.password.value;
-    console.log(name, email, password);
+    // console.log(photo, name, email, password);
 
-    // if (!/^.{6,}$/.test(password)) {
-    //   setErrorMessage("Password must be at least 6 characters long.");
-    // } else {
-    //   setErrorMessage("");
-    // }
+    if (!/^.{6,}$/.test(password)) {
+      setErrorMessage("Password must be at least 6 characters long.");
+    } else {
+      setErrorMessage("");
+    }
     createUser(email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log("user :>> ", user);
+        // console.log("user :>> ", user);
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        // console.log(errorCode, errorMessage);
       });
-    // updateUser(name, photo);
+    updateUser(name, photo);
   };
   return (
     <div>
@@ -84,7 +84,7 @@ const Registration = () => {
                     id="name"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Your Name"
-                    required=""
+                    required
                   />
                 </div>
                 <div>
@@ -100,7 +100,23 @@ const Registration = () => {
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
-                    required=""
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="url"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Your Photo url
+                  </label>
+                  <input
+                    type="url"
+                    name="url"
+                    id="url"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="photo url"
+                    required
                   />
                 </div>
                 <div>
@@ -116,8 +132,9 @@ const Registration = () => {
                     id="password"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required=""
+                    required
                   />
+                  <span className="text-rose-600">{errorMessage}</span>
                 </div>
 
                 <div className="flex items-start">
@@ -151,6 +168,15 @@ const Registration = () => {
                 >
                   Create an account
                 </button>
+                <div className="divider">OR</div>
+                <div className="text-center">
+                  <button
+                    onClick={handleGoogleSignIn}
+                    className="btn btn-primary"
+                  >
+                    Google
+                  </button>
+                </div>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Already have an account?{" "}
                   <Link
