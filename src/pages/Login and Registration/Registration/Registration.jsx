@@ -1,7 +1,52 @@
-import React from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { AuthContext } from "../../../contexts/AuthProvider";
+
 const Registration = () => {
+  const [errorMessage, setErrorMessage] = useState("");
+  const { createUser } = useContext(AuthContext);
+  const { GoogleSignIn } = useContext(AuthContext);
+  
+  // console.log("location :>> ", location);
+  const handleGoogleSignIn = () => {
+    GoogleSignIn()
+      .then((result) => {
+        const loggedInUser = result.user;
+        // setUser(loggedInUser);
+        // console.log('loggedInUser :>> ', loggedInUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name, email, password);
+
+    // if (!/^.{6,}$/.test(password)) {
+    //   setErrorMessage("Password must be at least 6 characters long.");
+    // } else {
+    //   setErrorMessage("");
+    // }
+    createUser(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log("user :>> ", user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+    // updateUser(name, photo);
+  };
   return (
     <div>
       <section className="bg-gray-50 dark:bg-gray-900">
@@ -22,7 +67,10 @@ const Registration = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Create and account
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <form
+                onSubmit={handleRegister}
+                className="space-y-4 md:space-y-6"
+              >
                 <div>
                   <label
                     htmlFor="name"

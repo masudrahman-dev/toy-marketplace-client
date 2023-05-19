@@ -1,6 +1,52 @@
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Login = () => {
+  const [errorMessage, setErrorMessage] = useState("");
+  const { GoogleSignIn, logIn } = useContext(AuthContext);
+
+  const handleLogin = (e) => {
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    logIn(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+
+        console.log("Log in successful");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log("errorCode :>> ", errorCode);
+        const errorMessage = error.message;
+        // console.log(errorMessage);
+        if (
+          error.code === "auth/wrong-password" ||
+          error.code === "auth/user-not-found"
+        ) {
+          setErrorMessage("Invalid email or password");
+        } else {
+          setErrorMessage("Unknown error occurred, please try again later");
+        }
+      });
+
+    e.preventDefault();
+  };
+
+  const handleGoogleSignIn = () => {
+    GoogleSignIn()
+      .then((result) => {
+        const loggedInUser = result.user;
+        // setUser(loggedInUser);
+        // console.log(loggedInUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div>
       <section className="bg-gray-50 dark:bg-gray-900">
@@ -21,7 +67,7 @@ const Login = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign in to your account
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <form onSubmit={handleLogin} className="space-y-4 md:space-y-6">
                 <div>
                   <label
                     htmlFor="email"
@@ -87,6 +133,10 @@ const Login = () => {
                 >
                   Sign in
                 </button>
+                <div className="divider">OR</div>
+                <div className="text-center">
+                  <button onClick={handleGoogleSignIn} className="btn btn-primary">Google</button>
+                </div>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don’t have an account yet?{" "}
                   <Link
