@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const { GoogleSignIn, logIn } = useContext(AuthContext);
-
+  const location = useLocation();
+  // console.log("location :>> ", location);
   const handleLogin = (e) => {
     const form = e.target;
     const email = form.email.value;
@@ -18,9 +19,9 @@ const Login = () => {
         console.log("Log in successful");
       })
       .catch((error) => {
-        const errorCode = error.code;
-        console.log("errorCode :>> ", errorCode);
-        const errorMessage = error.message;
+        // const errorCode = error.code;
+        // console.log("errorCode :>> ", errorCode);
+        // const errorMessage = error.message;
         // console.log(errorMessage);
         if (
           error.code === "auth/wrong-password" ||
@@ -40,7 +41,7 @@ const Login = () => {
       .then((result) => {
         const loggedInUser = result.user;
         // setUser(loggedInUser);
-        // console.log(loggedInUser);
+        console.log("loggedInUser :>> ", loggedInUser);
       })
       .catch((error) => {
         console.log(error);
@@ -135,7 +136,12 @@ const Login = () => {
                 </button>
                 <div className="divider">OR</div>
                 <div className="text-center">
-                  <button onClick={handleGoogleSignIn} className="btn btn-primary">Google</button>
+                  <button
+                    onClick={handleGoogleSignIn}
+                    className="btn btn-primary"
+                  >
+                    Google
+                  </button>
                 </div>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don’t have an account yet?{" "}
