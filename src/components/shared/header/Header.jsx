@@ -1,14 +1,29 @@
-import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, Navigate } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 // import Menu from "./Menu";
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
 
+  const handleLogOut = () => {
+    // setIsUserOpen(!isUserOpen);
+    logOut()
+      .then(() => {
+        // Sign-out successful.
+        console.log("log out successful.");
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
+  let t = true;
   return (
     <nav className="border mb-12 container mx-auto">
       {/* <Menu></Menu> */}
       <div className="navbar justify-between bg-base-100">
         <div>
           <Link to="/" className="btn btn-ghost normal-case text-xl">
-           TOY BARI
+            TOY BARI
           </Link>
         </div>
         <div className="flex gap-5">
@@ -17,7 +32,12 @@ const Header = () => {
           <NavLink to="/all_toys">All Toys</NavLink>
           <NavLink to="/my_toys">My Toys</NavLink>
           <NavLink to="/add_toys">Add Toys</NavLink>
-          <NavLink to="/login">Log in</NavLink>
+
+          {user ? (
+            <button onClick={handleLogOut}>Log out</button>
+          ) : (
+            <NavLink to="/login">Log in</NavLink>
+          )}
           <NavLink to="/register">Register</NavLink>
         </div>
         <div className="flex-none  ">

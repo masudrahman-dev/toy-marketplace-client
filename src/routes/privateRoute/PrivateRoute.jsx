@@ -1,26 +1,25 @@
-import { Button, Spinner } from "flowbite-react";
 import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { Circles } from "react-loader-spinner";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
-  // console.log("user in private route", user);
-  // console.log('loading private :>> ', loading);
-  if (!loading) {
+
+  if (loading) {
     return (
-      <div className="absolute bottom-0">
-        <div className=" ">
-          <Button>
-            <Spinner aria-label="Spinner button example" />
-            <span className="pl-3">Loading...</span>
-          </Button>
-        </div>
-      </div>
+      <Circles
+        height="50"
+        width="50"
+        color="#e11d48"
+        ariaLabel="circles-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
     );
   }
-
   if (user) {
     return children;
   }
