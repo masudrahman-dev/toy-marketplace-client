@@ -1,6 +1,16 @@
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const EditModal = () => {
+  const updateBtn = () => {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Product Updated",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
   const {
     register,
     handleSubmit,
@@ -164,6 +174,7 @@ const EditModal = () => {
                   </div>
                   <button
                     type="submit"
+                    onClick={updateBtn}
                     className="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800  focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 btn-primary"
                   >
                     <svg
