@@ -1,9 +1,12 @@
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import Swal from "sweetalert2";
-import EditModal from "../../../components/modal/EditModal";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
 const MyToysTr = ({ product, index }) => {
+  const [dataId, setDataId] = useState("");
+
   const {
     _id,
     product_url,
@@ -24,6 +27,16 @@ const MyToysTr = ({ product, index }) => {
     buttonsStyling: false,
   });
 
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:3000/my_toys/${id}/${dataId}`)
+      .then((response) => {
+        console.log("Data deleted successfully:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error deleting data:", error);
+      });
+  };
   const deleteBtn = () => {
     swalWithBootstrapButtons
       .fire({
@@ -106,7 +119,10 @@ const MyToysTr = ({ product, index }) => {
           <Link to={_id}>Edit</Link>
         </td>
         <td
-          onClick={deleteBtn}
+          onClick={() => {
+            deleteBtn();
+            handleDelete(_id);
+          }}
           className="px-4  link py-2 font-medium text-rose-600 whitespace-nowrap dark:text-rose-600 "
         >
           Delete
