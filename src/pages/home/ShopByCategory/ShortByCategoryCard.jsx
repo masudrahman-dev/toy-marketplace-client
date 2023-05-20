@@ -4,18 +4,23 @@ import LazyLoad from "react-lazy-load";
 import "./GalleryCard.css";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-const GalleryCard = ({ product }) => {
+const ShortByCategoryCard = ({ product }) => {
   // console.log("product :>> ", product);
+  console.log(product?._id);
   return (
     <div className=" flex flex-col justify-between  bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="m-5  h-64 bg-white  rounded-lg overflow-hidden ">
-        <LazyLoad
+        <LazyLoad 
           threshold={0.95}
           onContentVisible={() => {
             console.log("loaded!");
           }}
         >
-          <img className=" h-64 md:h-auto" src={product?.product_url} alt="" />
+          <img
+   
+            src={product?.product_url}
+            alt=""
+          />
         </LazyLoad>
       </div>
 
@@ -44,7 +49,7 @@ const GalleryCard = ({ product }) => {
             }}
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            <Link to={`products/${product?._id}`}>View Details</Link>
+            <Link to="/:id">View Details</Link>
           </button>
         </div>
       </div>
@@ -52,4 +57,4 @@ const GalleryCard = ({ product }) => {
   );
 };
 
-export default GalleryCard;
+export default ShortByCategoryCard;

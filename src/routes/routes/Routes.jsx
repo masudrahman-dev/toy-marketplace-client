@@ -10,6 +10,7 @@ import MyToys from "../../pages/privatePages/MyToys/MyToys";
 import AllToys from "../../pages/All Toys/AllToys";
 import PrivateRoute from "../privateRoute/PrivateRoute";
 import ViewDetails from "../../pages/home/ViewDetails/ViewDetails";
+import view_details_loader from "../loaders/view_details_loader";
 
 const router = createBrowserRouter([
   {
@@ -29,12 +30,13 @@ const router = createBrowserRouter([
         element: <AllToys />,
       },
       {
-        path: "/view_details",
+        path: "products/:id",
         element: (
           <PrivateRoute>
             <ViewDetails />
           </PrivateRoute>
         ),
+        loader: view_details_loader,
       },
       {
         path: "/add_toys",

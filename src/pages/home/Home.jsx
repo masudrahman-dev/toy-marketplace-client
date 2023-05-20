@@ -6,8 +6,8 @@ import axios from "axios";
 import Loading from "../../components/Loading/Loading";
 
 const Home = () => {
-  const [products, setProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [products, setProducts] = useState(null);
 
   useEffect(() => {
     axios
@@ -25,13 +25,6 @@ const Home = () => {
   if (isLoading) {
     return <Loading />;
   }
-
-
-
-
-
-
-
 
 
   return (
