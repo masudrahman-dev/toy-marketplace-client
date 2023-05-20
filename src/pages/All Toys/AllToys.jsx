@@ -25,7 +25,7 @@ const AllToys = () => {
   if (isLoading) {
     return <Loading />;
   }
-  console.log("products :>> ", products);
+
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
       confirmButton: "btn btn-success ",

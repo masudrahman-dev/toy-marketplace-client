@@ -1,11 +1,12 @@
+/* eslint-disable react/prop-types */
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
 const AllToysTr = ({ product, index }) => {
   const { product_url, category, price, product_name, quantity, rating } =
     product;
-  console.log("product :>> ", product);
+
 
   return (
     <tr className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">

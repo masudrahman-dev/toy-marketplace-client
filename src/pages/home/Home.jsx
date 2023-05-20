@@ -25,10 +25,19 @@ const Home = () => {
   if (isLoading) {
     return <Loading />;
   }
+
+
+
+
+
+
+
+
+
   return (
     <div>
       <Banner></Banner>
-      <Gallery></Gallery>
+      <Gallery products={products}></Gallery>
       <ShopByCategory></ShopByCategory>
     </div>
   );
