@@ -1,26 +1,15 @@
 import { Link } from "react-router-dom";
 
 import LazyLoad from "react-lazy-load";
-import "../Gallery/GalleryCard.css"
+import "../Gallery/GalleryCard.css";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-const ShopByCategoryCard = ({product}) => {
-
+const ShopByCategoryCard = ({ product }) => {
   return (
     <div className=" flex flex-col justify-between  bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="m-5  h-64 bg-white  rounded-lg overflow-hidden ">
-        <LazyLoad 
-          threshold={0.95}
-          onContentVisible={() => {
-            console.log("loaded!");
-          }}
-        >
-          <img
-   
-            src={product?.product_url}
-            alt=""
-          />
-        </LazyLoad>
+
+          <img src={product?.product_url} alt="" />
       </div>
 
       <div className="px-5 pb-5 ">
