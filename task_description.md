@@ -125,7 +125,7 @@ You can explore component libraries other than DaisyUI. Remember, a unique proje
 
 <br/>
 
-7. **`All Toys`** page: Create an All Toys page where `you will see` the toys all the `users have` added in the tabular form. Each row of the All Toys table/list will have the following information:
+7. **`All Toys`** page: Create an All Toys page where `you will see` the toys `all the users have added` in the tabular form. Each row of the All Toys table/list will have the following information:
 
     - Seller: (if available) show the name of the person who posted the toy
     - Toy Name

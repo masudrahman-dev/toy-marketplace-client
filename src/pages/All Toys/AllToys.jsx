@@ -1,10 +1,31 @@
-
-
 import Swal from "sweetalert2";
-import ViewDetailsModal from "../../components/modal/ViewDetailsModal";
-import Rating from "../../components/Icon/Rating";
+
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Loading from "../../components/Loading/Loading";
+import AllToysTr from "./allToysTr";
 
 const AllToys = () => {
+  const [products, setProducts] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/products`)
+      .then((response) => {
+        setProducts(response.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setIsLoading(false);
+      });
+  }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+  console.log("products :>> ", products);
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
       confirmButton: "btn btn-success ",
@@ -144,7 +165,7 @@ const AllToys = () => {
                       Product
                     </th>
                     <th scope="col" className="px-4 py-3">
-                      Category
+                      Sub-category
                     </th>
                     <th scope="col" className="px-4 py-3">
                       quantity
@@ -163,56 +184,9 @@ const AllToys = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <td className="w-4 px-4 py-3">
-                      <div className="flex items-center">
-                        <input
-                          id="checkbox-table-search-1"
-                          type="checkbox"
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                        />
-                        <label
-                          htmlFor="checkbox-table-search-1"
-                          className="sr-only"
-                        >
-                          checkbox
-                        </label>
-                      </div>
-                    </td>
-                    <th
-                      scope="row"
-                      className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      <img
-                        src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png"
-                        alt="iMac Front Image"
-                        className="w-auto h-8 mr-3"
-                      />
-                      Apple iMac 27&#34;
-                    </th>
-                    <td className="px-4 py-2">
-                      <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
-                        Desktop PC
-                      </span>
-                    </td>
-                    <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                      <div className="flex items-center">
-                        <div className="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
-                        95
-                      </div>
-                    </td>
-                    <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                      1.47
-                    </td>
-
-                    <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                      <Rating></Rating>
-                    </td>
-
-                    <td className="px-4 link py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                      <label htmlFor="view-details-modal"> Details</label>
-                    </td>
-                  </tr>
+                  {products.map((product,index) => (
+                    <AllToysTr key={product._id} product={product} index={index}></AllToysTr>
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -319,7 +293,6 @@ const AllToys = () => {
           </div>
         </div>
       </section>
-      <ViewDetailsModal></ViewDetailsModal>
     </div>
   );
 };

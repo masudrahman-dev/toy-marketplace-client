@@ -1,4 +1,7 @@
+import axios from "axios";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const {
@@ -7,8 +10,28 @@ const AddToy = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(watch("example")); // watch input value by passing the name of it
+  const onSubmit = (data) => {
+    console.log(data);
+    // Perform POST request
+    axios
+      .post("http://localhost:3000/products", data)
+      .then((response) => {
+        console.log("Success:", response.data);
+        // Process the response data
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "successfully Product Added",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        // Handle the error
+      });
+  };
+  // console.log(watch("example")); // watch input value by passing the name of it
 
   return (
     <div className=" ">
@@ -34,7 +57,7 @@ const AddToy = () => {
                     Product Name
                   </label>
                   <input
-                    defaultValue="farari"
+                    // defaultValue="farari"
                     {...register("product_name", { required: true })}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Type product name"
@@ -53,7 +76,7 @@ const AddToy = () => {
                     Product Picture url
                   </label>
                   <input
-                    defaultValue="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
+                    // defaultValue="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
                     type="url"
                     {...register("product_url", { required: true })}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -73,7 +96,7 @@ const AddToy = () => {
                     Seller Name
                   </label>
                   <input
-                    defaultValue="asd"
+                    defaultValue="Kabir Mia"
                     {...register("seller_name", { required: true })}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Type seller name"
@@ -92,7 +115,7 @@ const AddToy = () => {
                     Seller Email
                   </label>
                   <input
-                    defaultValue="asd@gmail.com"
+                    defaultValue="kabirmia@gmail.com"
                     type="email"
                     {...register("seller_email", { required: true })}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -113,6 +136,7 @@ const AddToy = () => {
                   </label>
                   <input
                     type="number"
+                    defaultValue="4"
                     {...register("rating", { required: true })}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="3"
@@ -146,6 +170,7 @@ const AddToy = () => {
                   </label>
                   <input
                     type="number"
+                    defaultValue="7"
                     {...register("quantity", { required: true })}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="12"
@@ -167,10 +192,10 @@ const AddToy = () => {
                     {...register("category", { required: true })}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   >
-                    <option></option>
-                    <option value="sports_car">Sports Car</option>
+                    {/* <option></option> */}
                     <option value="motorcycle">Motorcycle</option>
                     <option value="stylish_car">Stylish Car</option>
+                    <option value="sports_car">Sports Car</option>
                   </select>
                   {errors.product_name && (
                     <span className="text-rose-600">
@@ -187,8 +212,9 @@ const AddToy = () => {
                     Description
                   </label>
                   <textarea
+                    defaultValue="Buy Bburago Porsche 911 RSR LM 2020  1/43 Diecast Model Car & many more scale model toy cars, diecast toys & vehicles on Hobby toys. | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, ex alias voluptas facere nemo sapiente earum animi, minus natus nisi dicta delectus. Minima possimus nobis animi fugit dolorem, quam perspiciatis."
                     {...register("description")}
-                    rows="4"
+                    rows="5"
                     className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Write product description here"
                   ></textarea>

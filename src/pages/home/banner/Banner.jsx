@@ -39,7 +39,7 @@ const Banner = () => {
           </a>
         </div>
         <div>
-          <AwesomeSlider>
+          {/* <AwesomeSlider>
             <div>
               <img
                 src="https://www.hobbytoys.co/cdn/shop/products/BburagoFerrariSF90StradaleSignatureEdition_360x.jpg?v=1681706909"
@@ -58,7 +58,7 @@ const Banner = () => {
                 alt=""
               />
             </div>
-          </AwesomeSlider>
+          </AwesomeSlider> */}
         </div>
       </div>
     </div>

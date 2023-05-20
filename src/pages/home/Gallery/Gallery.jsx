@@ -1,4 +1,4 @@
-import ViewDetailsModal from "../../../components/modal/ViewDetailsModal";
+
 import GalleryCard from "./GalleryCard";
 
 const Gallery = () => {
@@ -21,7 +21,7 @@ const Gallery = () => {
         <GalleryCard></GalleryCard>
         <GalleryCard></GalleryCard>
       </div>
-      <ViewDetailsModal></ViewDetailsModal>
+  
     </div>
   );
 };
