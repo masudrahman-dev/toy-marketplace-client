@@ -2,6 +2,15 @@
 import GalleryCard from "./GalleryCard";
 
 const Gallery = () => {
+
+
+
+
+
+
+
+
+  
   return (
     <div className="container mx-auto border mt-20">
       <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">

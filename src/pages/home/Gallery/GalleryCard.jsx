@@ -1,17 +1,21 @@
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
-import Rating from "../../../components/Icon/Rating";
 
+import Rating from "../../../components/Icon/Rating";
+import LazyLoad from "react-lazy-load";
+import "./GalleryCard.css"
 const GalleryCard = () => {
+
   return (
     <div className=" mx-auto ">
       <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div className="p-8 ">
-          <img
-            className="h-auto max-w-full rounded-lg"
-            src="https://www.hobbytoys.co/cdn/shop/products/Porsche911RSRd_470x.jpg?v=1670825210"
-            alt=""
-          />
+          <LazyLoad threshold={0.95} onContentVisible={() => {console.log('loaded!')}}>
+            <img
+              className="h-auto max-w-full rounded-lg"
+              src="https://www.hobbytoys.co/cdn/shop/products/Porsche911RSRd_470x.jpg?v=1670825210"
+              alt=""
+            />
+          </LazyLoad>
         </div>
         <div className="px-5 pb-5">
           <a href="#">
