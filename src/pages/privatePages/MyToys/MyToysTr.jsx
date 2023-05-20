@@ -1,12 +1,8 @@
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { useState } from "react";
-const MyToysTr = ({ product, index }) => {
-  const [dataId, setDataId] = useState("");
 
+const MyToysTr = ({ product, index, handleDelete }) => {
   const {
     _id,
     product_url,
@@ -18,55 +14,6 @@ const MyToysTr = ({ product, index }) => {
     seller_name,
     seller_email,
   } = product;
-
-  const swalWithBootstrapButtons = Swal.mixin({
-    customClass: {
-      confirmButton: "btn btn-success ",
-      cancelButton: "btn btn-info mr-3",
-    },
-    buttonsStyling: false,
-  });
-
-  const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:3000/my_toys/${id}/${dataId}`)
-      .then((response) => {
-        console.log("Data deleted successfully:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error deleting data:", error);
-      });
-  };
-  const deleteBtn = () => {
-    swalWithBootstrapButtons
-      .fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Yes, delete it!",
-        cancelButtonText: "No, cancel!",
-        reverseButtons: true,
-      })
-      .then((result) => {
-        if (result.isConfirmed) {
-          swalWithBootstrapButtons.fire(
-            "Deleted!",
-            "Your file has been deleted.",
-            "success"
-          );
-        } else if (
-          /* Read more about handling dismissals below */
-          result.dismiss === Swal.DismissReason.cancel
-        ) {
-          swalWithBootstrapButtons.fire(
-            "Cancelled",
-            "Your imaginary file is safe :)",
-            "error"
-          );
-        }
-      });
-  };
 
   return (
     <>
@@ -120,7 +67,6 @@ const MyToysTr = ({ product, index }) => {
         </td>
         <td
           onClick={() => {
-            deleteBtn();
             handleDelete(_id);
           }}
           className="px-4  link py-2 font-medium text-rose-600 whitespace-nowrap dark:text-rose-600 "

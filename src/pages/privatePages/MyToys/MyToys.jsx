@@ -1,9 +1,9 @@
-import EditModal from "../../../components/modal/EditModal";
 import { useContext, useEffect, useState } from "react";
 import Loading from "../../../components/Loading/Loading";
 import axios from "axios";
 import MyToysTr from "./MyToysTr";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
   const [products, setProducts] = useState(null);
@@ -21,7 +21,58 @@ const MyToys = () => {
         console.error("Error:", error);
         setIsLoading(false);
       });
-  }, [user?.email]);
+  }, [products, user?.email]);
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: "btn btn-success ",
+      cancelButton: "btn btn-info mr-3",
+    },
+    buttonsStyling: false,
+  });
+
+  const handleDelete = (id) => {
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "Deleted!",
+            "Your file has been deleted.",
+            "success"
+          );
+          axios
+            .delete(`http://localhost:3000/my_toys/${id}`)
+            .then((response) => {
+              console.log("Data deleted successfully:", response.data);
+              if (response?.data?.deletedCount > 0) {
+                const remaining = products?.filter((product) => product !== id);
+                setProducts(remaining)
+              }
+            })
+            .catch((error) => {
+              console.error("Error deleting data:", error);
+            });
+        } else if (
+          /* Read more about handling dismissals below */
+
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your imaginary file is safe :)",
+            "error"
+          );
+        }
+      });
+  };
 
   if (isLoading) {
     return <Loading />;
@@ -134,6 +185,7 @@ const MyToys = () => {
                       key={product?._id}
                       product={product}
                       index={index}
+                      handleDelete={handleDelete}
                     />
                   ))}
                 </tbody>

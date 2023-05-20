@@ -15,7 +15,7 @@ const AddToy = () => {
     axios
       .post("http://localhost:3000/products", data)
       .then((response) => {
-        console.log("Success:", response.data);
+        // console.log("Success:", response.data);
         // Process the response data
         Swal.fire({
           position: "top-end",
