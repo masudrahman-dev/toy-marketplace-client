@@ -12,11 +12,13 @@ import PrivateRoute from "../privateRoute/PrivateRoute";
 import ViewDetails from "../../pages/home/ViewDetails/ViewDetails";
 import view_details_loader from "../loaders/view_details_loader";
 import EditModal from "../../components/modal/EditModal";
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
