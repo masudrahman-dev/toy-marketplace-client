@@ -242,7 +242,6 @@ const MyToys = () => {
           </div>
         </div>
       </section>
-      <EditModal></EditModal>
     </div>
   );
 };

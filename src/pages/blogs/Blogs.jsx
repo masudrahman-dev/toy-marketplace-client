@@ -1,4 +1,3 @@
-import { Circles } from "react-loader-spinner";
 
 const Blogs = () => {
   return (
@@ -6,6 +5,7 @@ const Blogs = () => {
       {/* The button to open modal */}
  
       blog
+      {/* <EditModal></EditModal> */}
       {/* Put this part before </body> tag */}
     </div>
   );

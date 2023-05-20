@@ -1,6 +1,6 @@
+import { Rating } from "@smastrom/react-rating";
 import { useLoaderData } from "react-router-dom";
-import Rating from "../../../components/Icon/Rating";
-
+import "@smastrom/react-rating/style.css";
 const ViewDetails = () => {
   const product = useLoaderData();
 
@@ -15,9 +15,18 @@ const ViewDetails = () => {
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
             {product?.product_name}
           </h2>
-          <Rating></Rating>
+          <div className="flex gap-2">
+            <Rating
+              style={{ maxWidth: 100 }}
+              value={product?.rating}
+              readOnly
+            />
+            <span className="ml-1 text-gray-500 dark:text-gray-400">
+              {product?.rating}
+            </span>
+          </div>
 
-          <p className="font-light text-gray-500 md:text-lg dark:text-gray-400">
+          <p className="font-light text-gray-500 md:text-lg dark:text-gray-400 my-2">
             Price: ${product?.price}
           </p>
           <p className="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">

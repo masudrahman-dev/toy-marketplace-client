@@ -5,7 +5,7 @@ import "./GalleryCard.css";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 const GalleryCard = ({ product }) => {
-  // console.log("product :>> ", product);
+  // console.log("product :>> ", product?._id);
   return (
     <div className=" flex flex-col justify-between  bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="m-5  h-64 bg-white  rounded-lg overflow-hidden ">

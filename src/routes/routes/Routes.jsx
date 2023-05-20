@@ -11,6 +11,7 @@ import AllToys from "../../pages/All Toys/AllToys";
 import PrivateRoute from "../privateRoute/PrivateRoute";
 import ViewDetails from "../../pages/home/ViewDetails/ViewDetails";
 import view_details_loader from "../loaders/view_details_loader";
+import EditModal from "../../components/modal/EditModal";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,14 @@ const router = createBrowserRouter([
         ),
       },
 
+      {
+        path: "/my_toys/:id",
+        element: (
+          <PrivateRoute>
+            <EditModal />
+          </PrivateRoute>
+        ),
+      },
       {
         path: "/login",
         element: <Login />,
