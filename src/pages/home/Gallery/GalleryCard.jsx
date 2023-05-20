@@ -4,8 +4,13 @@ import LazyLoad from "react-lazy-load";
 import "./GalleryCard.css";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import Swal from "sweetalert2";
+import { useContext} from "react";
+import { AuthContext } from "../../../contexts/AuthProvider";
 const GalleryCard = ({ product }) => {
-  
+  const { user } = useContext(AuthContext);
+
+
   return (
     <div className=" flex flex-col justify-between  bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="m-5  h-64 bg-white  rounded-lg overflow-hidden ">
@@ -36,11 +41,9 @@ const GalleryCard = ({ product }) => {
           </span>
           <button
             onClick={() => {
-              // Swal.fire(
-              //   "The Internet?",
-              //   "That thing is still around?",
-              //   "question"
-              // );
+              if (!user) {
+                Swal.fire("Log in first to show view details");
+              }
             }}
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >

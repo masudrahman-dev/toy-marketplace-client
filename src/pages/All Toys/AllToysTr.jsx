@@ -3,10 +3,14 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
+import { useContext } from "react";
+import Swal from "sweetalert2";
 const AllToysTr = ({ product, index }) => {
-  const {_id, product_url, category, price, product_name, quantity, rating } =
-    product;
+  const { user } = useContext(AuthContext);
 
+  const { _id, product_url, category, price, product_name, quantity, rating } =
+    product;
 
   return (
     <tr className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -46,7 +50,14 @@ const AllToysTr = ({ product, index }) => {
           </span>
         </div>
       </td>
-      <td className="px-4 link py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+      <td
+        onClick={() => {
+          if (!user) {
+            Swal.fire("Log in first to show  details");
+          }
+        }}
+        className="px-4 link py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+      >
         {/* <Link to={_id}> Details</Link> */}
         <Link to={`/products/${_id}`}> Details</Link>
         {/* <Link to="/blogs"> Details</Link> */}

@@ -178,7 +178,11 @@ const AllToys = () => {
                       Rating
                     </th>
 
-                    <th scope="col" className="px-4 py-3">
+                    <th
+                    
+                      scope="col"
+                      className="px-4 py-3"
+                    >
                       View Details
                     </th>
                   </tr>
@@ -186,7 +190,6 @@ const AllToys = () => {
                 <tbody>
                   {products.map((product, index) => (
                     <AllToysTr
-                    
                       key={product._id}
                       product={product}
                       index={index}
