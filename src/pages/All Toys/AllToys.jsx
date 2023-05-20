@@ -184,8 +184,13 @@ const AllToys = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {products.map((product,index) => (
-                    <AllToysTr key={product._id} product={product} index={index}></AllToysTr>
+                  {products.map((product, index) => (
+                    <AllToysTr
+                    
+                      key={product._id}
+                      product={product}
+                      index={index}
+                    ></AllToysTr>
                   ))}
                 </tbody>
               </table>
