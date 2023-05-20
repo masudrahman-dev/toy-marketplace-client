@@ -63,7 +63,7 @@ const MyToysTr = ({ product, index, handleDelete }) => {
           {seller_email}
         </td>
         <td className="px-4 link py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-          <Link to={_id}>Edit</Link>
+          <Link to={`products/${_id}`}>Update</Link>
         </td>
         <td
           onClick={() => {

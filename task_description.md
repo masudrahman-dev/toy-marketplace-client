@@ -66,7 +66,7 @@ You can explore component libraries other than DaisyUI. Remember, a unique proje
 
 <br/>
 
-4. **`Login & Registration systems:`** On the Registration and Login pages, display relevant error messages when necessary.
+4. **`Login & Registration systems:`** On the Registration and Login pages, `display relevant error messages when necessary.`
 
     > **Login Page:** When a user clicks on the login button, they will be redirected to the login page having the following:
 

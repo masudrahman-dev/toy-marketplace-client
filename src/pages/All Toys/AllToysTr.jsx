@@ -4,7 +4,7 @@ import "@smastrom/react-rating/style.css";
 
 import { Link } from "react-router-dom";
 const AllToysTr = ({ product, index }) => {
-  const { product_url, category, price, product_name, quantity, rating } =
+  const {_id, product_url, category, price, product_name, quantity, rating } =
     product;
 
 
@@ -47,7 +47,9 @@ const AllToysTr = ({ product, index }) => {
         </div>
       </td>
       <td className="px-4 link py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        <Link to="/view_details"> Details</Link>
+        {/* <Link to={_id}> Details</Link> */}
+        <Link to={`/products/${_id}`}> Details</Link>
+        {/* <Link to="/blogs"> Details</Link> */}
       </td>
     </tr>
   );
