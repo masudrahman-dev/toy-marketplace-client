@@ -1,16 +1,18 @@
 import EditModal from "../../../components/modal/EditModal";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Loading from "../../../components/Loading/Loading";
 import axios from "axios";
 import MyToysTr from "./MyToysTr";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 const MyToys = () => {
   const [products, setProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products`)
+      .get(`http://localhost:3000/users/${user?.email}`)
       .then((response) => {
         setProducts(response.data);
         setIsLoading(false);
@@ -19,13 +21,12 @@ const MyToys = () => {
         console.error("Error:", error);
         setIsLoading(false);
       });
-  }, []);
-  console.log("products :>> ", products);
+  }, [user?.email]);
+
   if (isLoading) {
     return <Loading />;
   }
 
- 
   return (
     <div>
       <section className="bg-gray-50 dark:bg-gray-900 py-3 sm:py-5">
