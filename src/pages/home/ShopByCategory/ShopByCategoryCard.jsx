@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 
 import LazyLoad from "react-lazy-load";
-import "./GalleryCard.css";
+import "../Gallery/GalleryCard.css"
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-const ShortByCategoryCard = ({ product }) => {
-  // console.log("product :>> ", product);
-  console.log(product?._id);
+const ShopByCategoryCard = ({product}) => {
+
   return (
     <div className=" flex flex-col justify-between  bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="m-5  h-64 bg-white  rounded-lg overflow-hidden ">
@@ -57,4 +56,4 @@ const ShortByCategoryCard = ({ product }) => {
   );
 };
 
-export default ShortByCategoryCard;
+export default ShopByCategoryCard;
