@@ -2,9 +2,16 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import Swal from "sweetalert2";
 const MyToysTr = ({ product, index }) => {
-  console.log("product,index :>> ", product, index);
-  const { product_url, category, price, product_name, quantity, rating } =
-    product;
+  const {
+    product_url,
+    category,
+    price,
+    product_name,
+    quantity,
+    rating,
+    seller_name,
+    seller_email,
+  } = product;
 
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
@@ -55,25 +62,25 @@ const MyToysTr = ({ product, index }) => {
         className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
       >
         <img
-          src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png"
+          src={product_url}
           alt="iMac Front Image"
           className="w-auto h-8 mr-3"
         />
-        Apple iMac 27&#34;
+        {product_name}
       </th>
       <td className="px-4 py-2">
         <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
-          Desktop PC
+          {category}
         </span>
       </td>
       <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
         <div className="flex items-center">
           <div className="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
-          95
+          {quantity}
         </div>
       </td>
       <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        1.47
+        $ {price}
       </td>
 
       <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -86,10 +93,10 @@ const MyToysTr = ({ product, index }) => {
       </td>
 
       <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        John Doe
+        {seller_name}
       </td>
       <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        johndoe@gmail.com
+        {seller_email}
       </td>
       <td className="px-4 link py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
         <label htmlFor="edit-modal">Edit</label>
