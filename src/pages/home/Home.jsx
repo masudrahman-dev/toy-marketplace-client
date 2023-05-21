@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <div>
-      <Banner  data-aos="fade-in"></Banner>
+      <Banner ></Banner>
       <Gallery products={products}></Gallery>
       <ShopByCategory></ShopByCategory>
     </div>

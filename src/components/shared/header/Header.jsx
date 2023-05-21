@@ -29,16 +29,45 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex gap-5">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/blogs">Blogs</NavLink>
-          <NavLink to="/all_toys">All Toys</NavLink>
+          <NavLink to="/">
+            {({ isActive }) => (
+              <span className={isActive && "text-rose-600 font-bold"}>
+                Home
+              </span>
+            )}
+          </NavLink>
+          <NavLink to="/blogs">
+            {({ isActive }) => (
+              <span className={isActive && "text-rose-600 font-bold"}>
+                Blogs
+              </span>
+            )}
+          </NavLink>
+          <NavLink to="/all_toys">
+            {({ isActive }) => (
+              <span className={isActive && "text-rose-600 font-bold"}>
+                All Toys
+              </span>
+            )}
+          </NavLink>
           {user && (
             <>
-              <NavLink to="/my_toys">My Toys</NavLink>
-              <NavLink to="/add_toys">Add Toys</NavLink>
+              <NavLink to="/my_toys">
+                {({ isActive }) => (
+                  <span className={isActive && "text-rose-600 font-bold"}>
+                    My Toys
+                  </span>
+                )}
+              </NavLink>
+              <NavLink to="/add_toys">
+                {({ isActive }) => (
+                  <span className={isActive && "text-rose-600 font-bold"}>
+                    Add Toys
+                  </span>
+                )}
+              </NavLink>
             </>
           )}
-          <NavLink to="/register">Register</NavLink>
         </div>
         <div className="flex-none  ">
           <div className="dropdown dropdown-end">

@@ -12,7 +12,7 @@ const GalleryCard = ({ product }) => {
 
 
   return (
-    <div className=" flex flex-col justify-between  bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className=" border flex flex-col justify-between  bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="m-5  h-64 bg-white  rounded-lg overflow-hidden ">
         <LazyLoad
           threshold={0.95}
