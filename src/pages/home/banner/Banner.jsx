@@ -2,7 +2,6 @@ import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 
 const Banner = () => {
-  // const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
     <div className="container mx-auto mt-20 ">
       <div className="grid  gap-12   lg:grid-cols-2">

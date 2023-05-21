@@ -2,8 +2,10 @@ import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import Logo from "../../../assets/images/logo.svg";
+
 const Header = () => {
   const [isShow, setIsShow] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
@@ -20,115 +22,133 @@ const Header = () => {
 
   return (
     <nav className="  container mx-auto py-5">
-      {/* <Menu></Menu> */}
-      <div className="navbar justify-between bg-base-100">
-        <div className="btn ">
-          <img src={Logo} alt="logo" />
-          <Link to="/" className=" ml-3 text-2xl font-semibold text-rose-600">
-            TOY BARI
-          </Link>
-        </div>
-        <div className="flex gap-5">
-          <NavLink to="/">
-            {({ isActive }) => (
-              <span className={isActive ? "text-rose-600 font-bold" : ""}>
-                Home
-              </span>
-            )}
-          </NavLink>
-          <NavLink to="/blogs">
-            {({ isActive }) => (
-              <span className={isActive ? "text-rose-600 font-bold" : ""}>
-                Blogs
-              </span>
-            )}
-          </NavLink>
-          <NavLink to="/all_toys">
-            {({ isActive }) => (
-              <span className={isActive ? "text-rose-600 font-bold" : ""}>
-                All Toys
-              </span>
-            )}
-          </NavLink>
-          {user && (
-            <>
-              <NavLink to="/my_toys">
-                {({ isActive }) => (
-                  <span className={isActive ? "text-rose-600 font-bold" : ""}>
-                    My Toys
-                  </span>
-                )}
-              </NavLink>
-              <NavLink to="/add_toys">
-                {({ isActive }) => (
-                  <span className={isActive ? "text-rose-600 font-bold" : ""}>
-                    Add Toys
-                  </span>
-                )}
-              </NavLink>
-            </>
-          )}
-        </div>
-        <div className="flex-none  ">
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle">
-              <div className="indicator">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-                <span className="badge badge-sm indicator-item">8</span>
-              </div>
-            </label>
-            <div
-              tabIndex={0}
-              className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
-            >
-              <div className="card-body">
-                <span className="font-bold text-lg">8 Items</span>
-                <span className="text-info">Subtotal: $999</span>
-                <div className="card-actions">
-                  <button className="btn btn-primary btn-block">
-                    View cart
+      <div className="bg-white border-gray-200 dark:bg-gray-900 rounded-lg">
+        <div className="flex flex-wrap items-center justify-between mx-auto p-4">
+          <div className="btn ">
+            <img src={Logo} alt="logo" />
+            <Link to="/" className=" ml-3 text-2xl font-semibold text-rose-600">
+              TOY BARI
+            </Link>
+          </div>
+          <div className="flex items-center md:order-2">
+            {/* user menu */}
+
+            <div>
+              {user ? (
+                <div className="flex">
+                  <div className=" mx-3">
+                    <label
+                      onMouseEnter={() => setIsShow(!isShow)}
+                      className="btn btn-ghost btn-circle avatar"
+                    >
+                      <div className="w-10 rounded-full">
+                        <img src={user?.photoURL} />
+                      </div>
+                    </label>
+                    {isShow && <p className="absolute ">{user?.displayName}</p>}
+                  </div>
+                  <button onClick={handleLogOut} className="btn btn-ghost">
+                    Log out
                   </button>
                 </div>
-              </div>
+              ) : (
+                <NavLink className="btn btn-ghost" to="/login">
+                  Log in
+                </NavLink>
+              )}
             </div>
+            {/* main menu */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              type="button"
+              className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            >
+              <span className="sr-only">Open main menu</span>
+              <svg
+                className="w-6 h-6"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </button>
           </div>
+          {/* hidden */}
+          <div
+            className={`items-center justify-between  w-full md:flex md:w-auto md:order-1 ${
+              isOpen ? "hidden" : ""
+            }`}
+            id="mobile-menu-2"
+          >
+            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+              <li>
+                <NavLink to="/">
+                  {({ isActive }) => (
+                    <span className={isActive ? "text-rose-600 font-bold" : ""}>
+                      Home
+                    </span>
+                  )}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/blogs">
+                  {({ isActive }) => (
+                    <span className={isActive ? "text-rose-600 font-bold" : ""}>
+                      Blogs
+                    </span>
+                  )}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/all_toys">
+                  {({ isActive }) => (
+                    <span className={isActive ? "text-rose-600 font-bold" : ""}>
+                      All Toys
+                    </span>
+                  )}
+                </NavLink>
+              </li>
+              <li>
+                {user && (
+                  <div className="md:flex gap-7">
+                    <div>
+                      <NavLink to="/my_toys">
+                        {({ isActive }) => (
+                          <span
+                            className={
+                              isActive ? "text-rose-600 font-bold" : ""
+                            }
+                          >
+                            My Toys
+                          </span>
+                        )}
+                      </NavLink>{" "}
+                    </div>
 
-          {user ? (
-            <>
-              {" "}
-              <div className=" mx-3">
-                <label
-                  onMouseEnter={() => setIsShow(!isShow)}
-                  className="btn btn-ghost btn-circle avatar"
-                >
-                  <div className="w-10 rounded-full">
-                    <img src={user?.photoURL} />
+                    <div>
+                      <NavLink to="/add_toys">
+                        {({ isActive }) => (
+                          <span
+                            className={
+                              isActive ? "text-rose-600 font-bold block" : ""
+                            }
+                          >
+                            Add Toys
+                          </span>
+                        )}
+                      </NavLink>
+                    </div>
                   </div>
-                </label>
-                {isShow && <p className="absolute ">{user?.displayName}</p>}
-              </div>
-              <button onClick={handleLogOut} className="btn btn-ghost">
-                Log out
-              </button>
-            </>
-          ) : (
-            <NavLink className="btn btn-ghost" to="/login">
-              Log in
-            </NavLink>
-          )}
+                )}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
