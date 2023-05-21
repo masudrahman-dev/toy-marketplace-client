@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-
+import logo from "../../../assets/images/logo.svg"
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Registration = () => {
@@ -66,7 +66,7 @@ const Registration = () => {
           >
             <img
               className="w-8 h-8 mr-2"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+              src={logo}
               alt="logo"
             />
             TOY BARI

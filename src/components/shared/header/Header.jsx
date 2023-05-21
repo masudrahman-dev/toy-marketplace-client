@@ -11,7 +11,7 @@ const Header = () => {
     logOut()
       .then(() => {
         // Sign-out successful.
-        console.log("log out successful.");
+        // console.log("log out successful.");
       })
       .catch((error) => {
         // An error happened.

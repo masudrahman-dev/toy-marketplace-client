@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
-
+import logo from "../../../assets/images/logo.svg"
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const { GoogleSignIn, logIn, user } = useContext(AuthContext);
@@ -48,7 +48,7 @@ const Login = () => {
       .then((result) => {
         const loggedInUser = result.user;
         // setUser(loggedInUser);
-        console.log("loggedInUser :>> ", loggedInUser);
+        // console.log("loggedInUser :>> ", loggedInUser);
       })
       .catch((error) => {
         console.log(error);
@@ -65,7 +65,7 @@ const Login = () => {
           >
             <img
               className="w-8 h-8 mr-2"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+              src={logo}
               alt="logo"
             />
             TOY BARI
@@ -157,7 +157,7 @@ const Login = () => {
                     to="/register"
                     className="font-medium  text-primary-600 hover:underline dark:text-primary-500"
                   >
-                    Sign up
+                    Register
                   </Link>
                 </p>
               </form>
