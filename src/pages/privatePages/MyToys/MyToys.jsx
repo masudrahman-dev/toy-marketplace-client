@@ -4,6 +4,7 @@ import axios from "axios";
 import MyToysTr from "./MyToysTr";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import Swal from "sweetalert2";
+import PageTitle from "../../../components/shared/pageTitle/PageTitle";
 
 const MyToys = () => {
   const [products, setProducts] = useState(null);
@@ -11,20 +12,21 @@ const MyToys = () => {
   const [sortByPrice, setSortByPrice] = useState("");
   const { user } = useContext(AuthContext);
 
-  console.log("sortByPrice :>> ", sortByPrice);
-
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/users/${user?.email}?sort_number=${sortByPrice}`)
+      .get(
+        `http://localhost:3000/users/${user?.email}?sort_number=${sortByPrice}`
+      )
       .then((response) => {
         setProducts(response.data);
+     
         setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error:", error);
         setIsLoading(false);
       });
-  }, [sortByPrice, user?.email]);
+  }, [products, sortByPrice, user?.email]);
 
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
@@ -55,7 +57,7 @@ const MyToys = () => {
           axios
             .delete(`http://localhost:3000/my_toys/${id}`)
             .then((response) => {
-              console.log("Data deleted successfully:", response.data);
+              // console.log("Data deleted successfully:", response.data);
               if (response?.data?.deletedCount > 0) {
                 const remaining = products?.filter((product) => product !== id);
                 setProducts(remaining);
@@ -83,7 +85,8 @@ const MyToys = () => {
   }
 
   return (
-    <div>
+    <>
+     <PageTitle title="my toys"></PageTitle>
       <section className="bg-gray-50 dark:bg-gray-900 py-3 sm:py-5">
         <div className="px-4 mx-auto max-w-screen-2xl lg:px-12">
           <div className="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
@@ -278,7 +281,7 @@ const MyToys = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

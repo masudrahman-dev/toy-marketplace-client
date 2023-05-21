@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "../../components/Loading/Loading";
 import AllToysTr from "./allToysTr";
+import PageTitle from "../../components/shared/pageTitle/PageTitle";
 
 const AllToys = () => {
   const [products, setProducts] = useState(null);
@@ -75,7 +76,8 @@ const AllToys = () => {
   };
 
   return (
-    <div>
+    <>
+     <PageTitle title="all toys"></PageTitle>
       <section className="bg-gray-50 dark:bg-gray-900 py-3 sm:py-5">
         <div className="px-4 mx-auto max-w-screen-2xl lg:px-12">
           {/*  */}
@@ -282,7 +284,7 @@ const AllToys = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

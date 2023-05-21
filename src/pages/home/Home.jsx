@@ -6,6 +6,7 @@ import axios from "axios";
 import Loading from "../../components/Loading/Loading";
 import ServiceTeam from "../ExtraPages/ServiceTeam";
 import CustomarReview from "../ExtraPages/CustomarReview";
+import PageTitle from "../../components/shared/pageTitle/PageTitle";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,6 +31,7 @@ const Home = () => {
 
   return (
     <div>
+      <PageTitle title="home"></PageTitle>
       <Banner></Banner>
       <Gallery products={products}></Gallery>
       <ShopByCategory></ShopByCategory>

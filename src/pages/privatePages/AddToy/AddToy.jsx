@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import PageTitle from "../../../components/shared/pageTitle/PageTitle";
 
 const AddToy = () => {
   const {
@@ -10,7 +11,7 @@ const AddToy = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     // Perform POST request
     axios
       .post("http://localhost:3000/products", data)
@@ -33,7 +34,8 @@ const AddToy = () => {
   // console.log(watch("example")); // watch input value by passing the name of it
 
   return (
-    <div className=" ">
+    <>
+      <PageTitle title="add toys"></PageTitle>
       {/* <!-- Main modal --> */}
       <div className=" flex justify-center">
         <div className=" p-4 w-full max-w-2xl h-full">
@@ -241,7 +243,7 @@ const AddToy = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
