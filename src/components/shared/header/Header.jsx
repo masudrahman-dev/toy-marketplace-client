@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
-
+import Logo from "../../../assets/images/logo.svg";
 const Header = () => {
   const [isShow, setIsShow] = useState(false);
 
@@ -19,11 +19,12 @@ const Header = () => {
   };
 
   return (
-    <nav className="  container mx-auto">
+    <nav className="  container mx-auto py-5">
       {/* <Menu></Menu> */}
       <div className="navbar justify-between bg-base-100">
-        <div>
-          <Link to="/" className="btn btn-ghost normal-case text-xl">
+        <div className="btn ">
+          <img src={Logo} alt="logo" />
+          <Link to="/" className=" ml-3 text-2xl font-semibold text-rose-600">
             TOY BARI
           </Link>
         </div>
