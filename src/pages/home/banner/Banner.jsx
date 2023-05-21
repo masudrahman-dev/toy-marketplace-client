@@ -2,6 +2,7 @@ import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 
 const Banner = () => {
+  // const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
     <div className="container mx-auto mt-20 ">
       <div className="grid  gap-12   lg:grid-cols-2">
@@ -16,7 +17,11 @@ const Banner = () => {
           </p>
         </div>
         <div>
-          <AwesomeSlider>
+          <AwesomeSlider
+            play={true}
+            cancelOnInteraction={false} // should stop playing on user interaction
+            interval={6000}
+          >
             <div>
               <img
                 src="https://www.hobbytoys.co/cdn/shop/products/BburagoFerrariSF90StradaleSignatureEdition_360x.jpg?v=1681706909"
@@ -31,7 +36,8 @@ const Banner = () => {
             </div>
             <div>
               <img
-                src="https://www.hobbytoys.co/cdn/shop/products/maisto-ford-mustang-shelby-gt500-blau-2020-1_2048x2048.jpg?v=1621677001"
+                className="w-11/12"
+                src="https://www.hobbytoys.co/cdn/shop/products/KTMRC390c_470x.jpg?v=1671618067"
                 alt=""
               />
             </div>
