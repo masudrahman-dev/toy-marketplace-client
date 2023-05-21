@@ -24,7 +24,7 @@ const Header = () => {
     <nav className="  container mx-auto py-5">
       <div className="bg-white border-gray-200 dark:bg-gray-900 rounded-lg">
         <div className="flex flex-wrap items-center justify-between mx-auto p-4">
-          <div className="btn ">
+          <div className="btn btn-outline btn-ghost">
             <img src={Logo} alt="logo" />
             <Link to="/" className=" ml-3 text-2xl font-semibold text-rose-600">
               TOY BARI
