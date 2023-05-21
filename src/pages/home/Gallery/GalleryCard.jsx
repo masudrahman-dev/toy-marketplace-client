@@ -5,21 +5,15 @@ import "./GalleryCard.css";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import Swal from "sweetalert2";
-import { useContext} from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
 const GalleryCard = ({ product }) => {
   const { user } = useContext(AuthContext);
 
-
   return (
     <div className=" border flex flex-col justify-between  bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="m-5  h-64 bg-white  rounded-lg overflow-hidden ">
-        <LazyLoad
-          threshold={0.95}
-          onContentVisible={() => {
-            console.log("loaded!");
-          }}
-        >
+        <LazyLoad threshold={0.95}>
           <img className=" h-64 md:h-auto" src={product?.product_url} alt="" />
         </LazyLoad>
       </div>
