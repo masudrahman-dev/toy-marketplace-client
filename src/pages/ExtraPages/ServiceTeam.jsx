@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 const ServiceTeam = () => {
   return (
-    <div>
-      <section className="bg-white dark:bg-gray-900">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 ">
+    <>
+      <section className="mt-20">
+        <div className="py-8 px-4 mx-auto container lg:py-16 lg:px-6 ">
           <div className="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+            <h2 className="mb-4  font-extrabold text-gray-900 dark:text-white text-5xl">
               Our Service Team
             </h2>
             <p className="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
@@ -399,7 +399,7 @@ const ServiceTeam = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

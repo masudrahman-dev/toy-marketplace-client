@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const EditModal = () => {
   const { id } = useParams();
 
-console.log(id);
+  console.log(id);
   const {
     register,
     handleSubmit,
@@ -74,10 +74,12 @@ console.log(id);
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Type product name"
                   />
-                  {errors.product_name && (
+                  {errors?.product_name ? (
                     <span className="text-rose-600">
                       This field is required
                     </span>
+                  ) : (
+                    ""
                   )}
                 </div>
                 <div>
@@ -94,10 +96,12 @@ console.log(id);
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Type product url"
                   />
-                  {errors.product_name && (
+                  {errors.product_name ? (
                     <span className="text-rose-600">
                       This field is required
                     </span>
+                  ) : (
+                    ""
                   )}
                 </div>
 
@@ -132,10 +136,12 @@ console.log(id);
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="$2999"
                   />
-                  {errors.product_name && (
+                  {errors?.product_name ? (
                     <span className="text-rose-600">
                       This field is required
                     </span>
+                  ) : (
+                    ""
                   )}
                 </div>
                 <div>
@@ -151,10 +157,12 @@ console.log(id);
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="12"
                   />
-                  {errors.product_name && (
+                  {errors?.product_name ? (
                     <span className="text-rose-600">
                       This field is required
                     </span>
+                  ) : (
+                    ""
                   )}
                 </div>
                 <div>
@@ -173,10 +181,12 @@ console.log(id);
                     <option value="motorcycle">Motorcycle</option>
                     <option value="stylish_car">Stylish Car</option>
                   </select>
-                  {errors.product_name && (
+                  {errors.product_name ? (
                     <span className="text-rose-600">
                       This field is required
                     </span>
+                  ) : (
+                    ""
                   )}
                 </div>
 

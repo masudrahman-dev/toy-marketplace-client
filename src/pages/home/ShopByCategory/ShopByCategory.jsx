@@ -28,7 +28,7 @@ const ShopByCategory = () => {
   }
   return (
     <div className="container mx-auto mt-20">
-      <h1 className="text-5xl font-semibold text-center mb-10">
+      <h1 className="text-5xl font-semibold text-center mb-10 text-gray-900 dark:text-white">
         Shop by Category
       </h1>
       <Tabs>

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-import LazyLoad from "react-lazy-load";
 import "../Gallery/GalleryCard.css";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";

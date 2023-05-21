@@ -8,7 +8,7 @@ const Gallery = ({ products }) => {
   return (
     <div className="container mx-auto  mt-20">
       <div className="flex items-center justify-center py-4 md:py-12 flex-wrap">
-        <h1 className="text-5xl font-semibold ">Gallery</h1>
+        <h1 className="text-5xl font-semibold text-gray-900 dark:text-white ">Gallery</h1>
       </div>
       <div
        

@@ -14,7 +14,11 @@ const Blogs = () => {
           </h2>
           <div className="grid pt-8 text-left border-t border-gray-200 md:gap-16 dark:border-gray-700 md:grid-cols-1">
             <div>
-              <div className="mb-10">
+              <div
+                className="mb-10"
+                data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom"
+              >
                 <h3 className="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
                   <svg
                     className="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
@@ -67,7 +71,11 @@ const Blogs = () => {
                   in the browser's local storage
                 </p>
               </div>
-              <div className="mb-10">
+              <div
+                className="mb-10"
+                data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom"
+              >
                 <h3 className="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
                   <svg
                     className="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
@@ -157,7 +165,11 @@ const Blogs = () => {
                   </ol>
                 </p>
               </div>
-              <div className="mb-10">
+              <div
+                className="mb-10"
+                data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom"
+              >
                 <h3 className="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
                   <svg
                     className="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
@@ -202,7 +214,11 @@ const Blogs = () => {
                   and we'll help you out as soon as we can.
                 </p>
               </div>
-              <div className="mb-10">
+              <div
+                className="mb-10"
+                data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom"
+              >
                 <h3 className="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
                   <svg
                     className="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"

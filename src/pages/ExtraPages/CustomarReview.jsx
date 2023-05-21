@@ -2,7 +2,7 @@ const CustomarReview = () => {
   return (
     <div className="container mx-auto mb-20">
       <div className="mx-auto text-center md:max-w-xl lg:max-w-3xl">
-        <h3 className="mb-6 text-3xl font-bold text-neutral-800 dark:text-neutral-200">
+        <h3 className="mb-6 text-5xl font-bold text-neutral-800 dark:text-neutral-200">
           Our Customer Feedback
         </h3>
         <p className="mb-6 pb-2 md:mb-12 md:pb-0">
@@ -13,7 +13,7 @@ const CustomarReview = () => {
       {/* <!-- Container for the Testimonials --> */}
       <div className="grid gap-6 text-center md:grid-cols-3 lg:gap-12">
         {/* <!-- First Testimonial --> */}
-        <div className="mb-12 md:mb-0">
+        <div className="mb-12 md:mb-0 border p-8 rounded-lg">
           <div className="mb-6 flex justify-center">
             <img
               src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(1).jpg"
@@ -39,7 +39,7 @@ const CustomarReview = () => {
         </div>
 
         {/* <!-- Second Testimonial --> */}
-        <div className="mb-12 md:mb-0">
+        <div className="mb-12 md:mb-0 border p-8 rounded-lg">
           <div className="mb-6 flex justify-center">
             <img
               src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(2).jpg"
@@ -133,7 +133,7 @@ const CustomarReview = () => {
         </div>
 
         {/* <!-- Third Testimonial --> */}
-        <div className="mb-0">
+        <div className="mb-0 border p-8 rounded-lg">
           {/* <!-- Fourth Testimonial --> */}
           <div className="mb-0">
             <div className="mb-6 flex justify-center">

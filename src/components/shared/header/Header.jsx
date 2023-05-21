@@ -31,21 +31,21 @@ const Header = () => {
         <div className="flex gap-5">
           <NavLink to="/">
             {({ isActive }) => (
-              <span className={isActive && "text-rose-600 font-bold"}>
+              <span className={isActive ? "text-rose-600 font-bold" : ""}>
                 Home
               </span>
             )}
           </NavLink>
           <NavLink to="/blogs">
             {({ isActive }) => (
-              <span className={isActive && "text-rose-600 font-bold"}>
+              <span className={isActive ? "text-rose-600 font-bold" : ""}>
                 Blogs
               </span>
             )}
           </NavLink>
           <NavLink to="/all_toys">
             {({ isActive }) => (
-              <span className={isActive && "text-rose-600 font-bold"}>
+              <span className={isActive ? "text-rose-600 font-bold" : ""}>
                 All Toys
               </span>
             )}
@@ -54,14 +54,14 @@ const Header = () => {
             <>
               <NavLink to="/my_toys">
                 {({ isActive }) => (
-                  <span className={isActive && "text-rose-600 font-bold"}>
+                  <span className={isActive ? "text-rose-600 font-bold" : ""}>
                     My Toys
                   </span>
                 )}
               </NavLink>
               <NavLink to="/add_toys">
                 {({ isActive }) => (
-                  <span className={isActive && "text-rose-600 font-bold"}>
+                  <span className={isActive ? "text-rose-600 font-bold" : ""}>
                     Add Toys
                   </span>
                 )}
