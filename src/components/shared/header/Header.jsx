@@ -82,7 +82,7 @@ const Header = () => {
           {/* hidden */}
           <div
             className={`items-center justify-between  w-full md:flex md:w-auto md:order-1 ${
-              isOpen ? "hidden" : ""
+              isOpen ? "" : "hidden"
             }`}
             id="mobile-menu-2"
           >

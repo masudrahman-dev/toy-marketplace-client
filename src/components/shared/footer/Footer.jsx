@@ -7,13 +7,13 @@ const Footer = () => {
       <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
         <div className="grid grid-flow-col gap-4">
           <Link to="/" className="link link-hover">
-            About us
+            Home
           </Link>
-          <Link to="/" className="link link-hover">
-            Contact
+          <Link to="/all_toys" className="link link-hover">
+            All Toys
           </Link>
-          <Link to="/" className="link link-hover">
-            Jobs
+          <Link to="/blogs" className="link link-hover">
+            Blogs
           </Link>
           <Link to="/" className="link link-hover">
             Terms and Condition

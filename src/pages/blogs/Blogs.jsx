@@ -8,7 +8,7 @@ const Blogs = () => {
   }, []);
   return (
     <>
-        <PageTitle title="blog"></PageTitle>
+      <PageTitle title="blog"></PageTitle>
       <section className="bg-white container mx-auto dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto sm:py-16 lg:px-6">
           <h2 className="mb-8 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
@@ -70,7 +70,7 @@ const Blogs = () => {
                 <p className="text-gray-500 dark:text-gray-400">
                   Storage on the client-side:Browser-based applications: For web
                   applications, you can store tokens in an HTTP-only cookie or
-                  in the browser's local storage
+                  in the browser s local storage
                 </p>
               </div>
               <div
@@ -101,8 +101,8 @@ const Blogs = () => {
                 <br />
                 <p className="text-gray-500 dark:text-gray-400">
                   <h1 className="font-bold">SQL</h1>
-                  <ol>
-                    <li>Data Model :</li>
+                  <div>
+                    <p>Data Model :</p>
                     <p>
                       SQL databases follow a relational data model, where data
                       is organized into tables with predefined schemas. These
@@ -110,7 +110,7 @@ const Blogs = () => {
                       tables are established through foreign keys.
                     </p>{" "}
                     <br />
-                    <li>Schema:</li>
+                    <p>Schema:</p>
                     <p>
                       databases enforce a rigid schema, meaning the structure of
                       the database is defined upfront. Any changes to the schema
@@ -118,7 +118,7 @@ const Blogs = () => {
                       migrating data.
                     </p>{" "}
                     <br />
-                    <li>Scalability:</li>
+                    <p>Scalability:</p>
                     <p>
                       SQL databases are vertically scalable, which means scaling
                       involves increasing the hardware resources (CPU, memory)
@@ -126,17 +126,17 @@ const Blogs = () => {
                       constraints.
                     </p>{" "}
                     <br />
-                    <li>Query Language:</li>
+                    <p>Query Language:</p>
                     <p>
                       SQL databases use SQL as the standardized query language
                       for defining and manipulating data. SQL provides powerful
                       querying capabilities, including complex joins and
                       aggregations.
                     </p>
-                  </ol>
+                  </div>
                   <h1 className="font-bold">No-SQL</h1>
-                  <ol>
-                    <li>Data Model :</li>
+                  <div>
+                    <p>Data Model :</p>
                     <p>
                       NoSQL databases employ various data models, such as
                       key-value, document, columnar, and graph. They offer more
@@ -144,14 +144,14 @@ const Blogs = () => {
                       unstructured data storage.
                     </p>{" "}
                     <br />
-                    <li>Schema:</li>
+                    <p>Schema:</p>
                     <p>
                       schema-less or schema-flexible. They allow for dynamic
                       schema changes, enabling easy scalability and
                       accommodating evolving data requirements.
                     </p>{" "}
                     <br />
-                    <li>Scalability:</li>
+                    <p>Scalability:</p>
                     <p>
                       horizontally scalable, which means they can distribute
                       data across multiple servers. They offer better
@@ -159,12 +159,12 @@ const Blogs = () => {
                       traffic loads.
                     </p>{" "}
                     <br />
-                    <li>Query Language:</li>
+                    <p>Query Language:</p>
                     <p>
                       ocument-based databases may use JSON-like query languages,
                       while graph databases may use graph traversal languages.
                     </p>
-                  </ol>
+                  </div>
                 </p>
               </div>
               <div
@@ -203,18 +203,7 @@ const Blogs = () => {
                   architecture and modular design for building complex
                   applications.
                 </p>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Feel free to{" "}
-                  <a
-                    href="#"
-                    className="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    contact us
-                  </a>{" "}
-                  and we'll help you out as soon as we can.
-                </p>
+            
               </div>
               <div
                 className="mb-10"
@@ -251,22 +240,13 @@ const Blogs = () => {
                   to the next stage. some to key stage aggregate work ...
                 </p>{" "}
                 <br />
-                <ol>
-                  <li>Matching Stage</li>
-                  <li>Transformation Stages</li>
-                  <li>Additional Stages</li>
-                  <li>Output</li>
-                </ol>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Find out more information by{" "}
-                  <a
-                    href="#"
-                    className="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline"
-                  >
-                    reading the license
-                  </a>
-                  .
-                </p>
+                <div>
+                  <p>Matching Stage</p>
+                  <p>Transformation Stages</p>
+                  <p>Additional Stages</p>
+                  <p>Output</p>
+                </div>
+              
               </div>
             </div>
           </div>
