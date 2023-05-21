@@ -8,10 +8,13 @@ import AllToysTr from "./allToysTr";
 const AllToys = () => {
   const [products, setProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchName, setSearchName] = useState("");
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products`)
+      .get(
+        `http://localhost:3000/products/all_toys_table?product_name=${searchName}`
+      )
       .then((response) => {
         setProducts(response.data);
         setIsLoading(false);
@@ -20,7 +23,13 @@ const AllToys = () => {
         console.error("Error:", error);
         setIsLoading(false);
       });
-  }, []);
+  }, [searchName]);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const search = e.target.search.value;
+    setSearchName(search);
+    e.target.search.value = "";
+  };
 
   if (isLoading) {
     return <Loading />;
@@ -74,12 +83,10 @@ const AllToys = () => {
             <div className="flex flex-col px-4 py-3 space-y-3 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:space-x-4">
               {/* start search code */}
               <div className="w-full md:w-1/2">
-                <form className="flex items-center">
-                
+                <form className="flex items-center" onSubmit={handleSearch}>
                   <div className="relative w-full">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                       <svg
-                     
                         className="w-5 h-5 text-gray-500 dark:text-gray-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
@@ -93,13 +100,20 @@ const AllToys = () => {
                       </svg>
                     </div>
                     <input
-                      type="text"
+                      type="search"
                       id="simple-search"
+                      name="search"
                       className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       placeholder="Search"
                       required=""
                     />
                   </div>
+                  <button
+                    type="submit"
+                    className="btn btn-outline btn-warning ml-3"
+                  >
+                    Search
+                  </button>
                 </form>
               </div>
               {/*  */}

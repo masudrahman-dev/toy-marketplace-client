@@ -28,14 +28,13 @@ const Home = () => {
     return <Loading />;
   }
 
-
   return (
     <div>
-      <Banner ></Banner>
+      <Banner></Banner>
       <Gallery products={products}></Gallery>
       <ShopByCategory></ShopByCategory>
-      <ServiceTeam/>
-      <CustomarReview/>
+      <ServiceTeam />
+      <CustomarReview />
     </div>
   );
 };
