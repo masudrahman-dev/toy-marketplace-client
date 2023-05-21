@@ -11,7 +11,6 @@ const MyToys = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [sortByPrice, setSortByPrice] = useState("");
   const { user } = useContext(AuthContext);
-
   useEffect(() => {
     axios
       .get(
@@ -26,7 +25,7 @@ const MyToys = () => {
         console.error("Error:", error);
         setIsLoading(false);
       });
-  }, [products, sortByPrice, user?.email]);
+  }, [sortByPrice, user?.email]);
 
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
@@ -61,7 +60,9 @@ const MyToys = () => {
             .then((response) => {
               // console.log("Data deleted successfully:", response.data);
               if (response?.data?.deletedCount > 0) {
-                const remaining = products?.filter((product) => product !== id);
+                const remaining = products?.filter(
+                  (product) => product._id !== id
+                );
                 setProducts(remaining);
               }
             })
