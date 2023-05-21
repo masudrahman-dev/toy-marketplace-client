@@ -12,7 +12,7 @@ const ShopByCategory = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/category/${select}`)
+      .get(`https://toy-marketplace-server-rose.vercel.app/category/${select}`)
       .then((response) => {
         setTabData(response.data);
         setIsLoading(false);

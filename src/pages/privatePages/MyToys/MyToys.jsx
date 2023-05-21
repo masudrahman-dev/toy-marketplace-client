@@ -15,11 +15,11 @@ const MyToys = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:3000/users/${user?.email}?sort_number=${sortByPrice}`
+        `https://toy-marketplace-server-rose.vercel.app/users/${user?.email}?sort_number=${sortByPrice}`
       )
       .then((response) => {
         setProducts(response.data);
-     
+
         setIsLoading(false);
       })
       .catch((error) => {
@@ -55,7 +55,9 @@ const MyToys = () => {
             "success"
           );
           axios
-            .delete(`http://localhost:3000/my_toys/${id}`)
+            .delete(
+              `https://toy-marketplace-server-rose.vercel.app/my_toys/${id}`
+            )
             .then((response) => {
               // console.log("Data deleted successfully:", response.data);
               if (response?.data?.deletedCount > 0) {
@@ -86,7 +88,7 @@ const MyToys = () => {
 
   return (
     <>
-     <PageTitle title="my toys"></PageTitle>
+      <PageTitle title="my toys"></PageTitle>
       <section className="bg-gray-50 dark:bg-gray-900 py-3 sm:py-5">
         <div className="px-4 mx-auto max-w-screen-2xl lg:px-12">
           <div className="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">

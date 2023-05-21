@@ -14,7 +14,7 @@ const AddToy = () => {
     // console.log(data);
     // Perform POST request
     axios
-      .post("http://localhost:3000/products", data)
+      .post("https://toy-marketplace-server-rose.vercel.app/products", data)
       .then((response) => {
         // console.log("Success:", response.data);
         // Process the response data

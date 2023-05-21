@@ -14,7 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products`)
+      .get(`https://toy-marketplace-server-rose.vercel.app/products`)
       .then((response) => {
         setProducts(response.data);
         setIsLoading(false);

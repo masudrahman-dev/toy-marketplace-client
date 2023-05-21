@@ -17,7 +17,10 @@ const EditModal = () => {
     console.log(data);
     // Perform POST request
     axios
-      .patch(`http://localhost:3000/my_toys/${id}`, data)
+      .patch(
+        `https://toy-marketplace-server-rose.vercel.app/my_toys/${id}`,
+        data
+      )
       .then((response) => {
         console.log("Success:", response.data);
         // Process the response data

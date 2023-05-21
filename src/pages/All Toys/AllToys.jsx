@@ -14,7 +14,7 @@ const AllToys = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:3000/products/all_toys_table?product_name=${searchName}`
+        `https://toy-marketplace-server-rose.vercel.app/products/all_toys_table?product_name=${searchName}`
       )
       .then((response) => {
         setProducts(response.data);
@@ -77,7 +77,7 @@ const AllToys = () => {
 
   return (
     <>
-     <PageTitle title="all toys"></PageTitle>
+      <PageTitle title="all toys"></PageTitle>
       <section className="bg-gray-50 dark:bg-gray-900 py-3 sm:py-5">
         <div className="px-4 mx-auto max-w-screen-2xl lg:px-12">
           {/*  */}
