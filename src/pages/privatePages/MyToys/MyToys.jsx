@@ -8,11 +8,14 @@ import Swal from "sweetalert2";
 const MyToys = () => {
   const [products, setProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [sortByPrice, setSortByPrice] = useState("");
   const { user } = useContext(AuthContext);
+
+  console.log("sortByPrice :>> ", sortByPrice);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/users/${user?.email}`)
+      .get(`http://localhost:3000/users/${user?.email}?sort_number=${sortByPrice}`)
       .then((response) => {
         setProducts(response.data);
         setIsLoading(false);
@@ -21,7 +24,8 @@ const MyToys = () => {
         console.error("Error:", error);
         setIsLoading(false);
       });
-  }, [products, user?.email]);
+  }, [sortByPrice, user?.email]);
+
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
       confirmButton: "btn btn-success ",
@@ -54,7 +58,7 @@ const MyToys = () => {
               console.log("Data deleted successfully:", response.data);
               if (response?.data?.deletedCount > 0) {
                 const remaining = products?.filter((product) => product !== id);
-                setProducts(remaining)
+                setProducts(remaining);
               }
             })
             .catch((error) => {
@@ -96,38 +100,18 @@ const MyToys = () => {
               </div>
               <div className="flex flex-col flex-shrink-0 space-y-3 md:flex-row md:items-center lg:justify-end md:space-y-0 md:space-x-3">
                 <button
-                  type="checkbox"
-                  className="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                  onClick={() => setSortByPrice(1)}
+                  type="button"
+                  className=" btn btn-info"
                 >
-                  <input
-                    id="low"
-                    type="checkbox"
-                    value=""
-                    className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                  />
-                  <label
-                    htmlFor="low"
-                    className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
-                  >
-                    Low to High
-                  </label>
+                  Low to High
                 </button>
                 <button
+                  onClick={() => setSortByPrice(-1)}
                   type="button"
-                  className="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                  className="btn btn-accent"
                 >
-                  <input
-                    id="high"
-                    type="checkbox"
-                    value=""
-                    className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                  />
-                  <label
-                    htmlFor="high"
-                    className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
-                  >
-                    Hight to Low
-                  </label>
+                  Hight to Low
                 </button>
               </div>
             </div>
