@@ -171,7 +171,7 @@ const AllToys = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {products.map((product, index) => (
+                  {products?.map((product, index) => (
                     <AllToysTr
                       key={product._id}
                       product={product}

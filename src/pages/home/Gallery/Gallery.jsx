@@ -14,7 +14,7 @@ const Gallery = ({ products }) => {
        
         className="grid grid-cols-1  md:grid-cols-2  lg:grid-cols-3  xl:grid-cols-4 gap-7"
       >
-        {products.map((product) => (
+        {products?.map((product) => (
           <GalleryCard key={product._id} product={product}></GalleryCard>
         ))}
       </div>
